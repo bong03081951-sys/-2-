@@ -690,6 +690,12 @@ with tab2:
         st.info("공정능력분석은 계량형 데이터에만 적용됩니다."); st.stop()
     if cp_res is None: st.error("계산 오류"); st.stop()
 
+    # 안전하게 변수 재할당
+    Cp  = cp_res['Cp'];  Cpk = cp_res['Cpk']
+    Pp  = pp_res['Pp'];  Ppk = pp_res['Ppk']
+    Cpu = cp_res['Cpu']; Cpl = cp_res['Cpl']
+    mu  = cp_res['mu'];  sw  = cp_res['sigma_within']; so = pp_res['sigma_overall']
+
     # ── KPI 카드 4개
     st.markdown('<div class="sec-hdr">📊 공정능력 지수</div>',unsafe_allow_html=True)
     kc=st.columns(4)
